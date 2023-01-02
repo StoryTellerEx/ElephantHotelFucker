@@ -1,0 +1,101 @@
+-- Got bored, made this..
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local TakeGive = Instance.new("TextButton")
+local Credit = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local Username = Instance.new("TextBox")
+local Amount = Instance.new("TextBox")
+
+ScreenGui.Parent = game:GetService("CoreGui")
+
+Frame.Draggable = true
+Frame.Selectable = true
+Frame.Active = true
+
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(98, 98, 98)
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.431716323, 0, 0.0679012313, 0)
+Frame.Size = UDim2.new(0, 480, 0, 382)
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+Title.Position = UDim2.new(0.0155890146, 0, 0.0249597672, 0)
+Title.Size = UDim2.new(0, 465, 0, 50)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Elephant Hotel Economy Fucker"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 30.000
+
+TakeGive.Name = "TakeGive"
+TakeGive.Parent = Frame
+TakeGive.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+TakeGive.Position = UDim2.new(0.289583296, 0, 0.580191731, 0)
+TakeGive.Size = UDim2.new(0, 200, 0, 50)
+TakeGive.Font = Enum.Font.SourceSans
+TakeGive.Text = "Take/Give Money"
+TakeGive.TextColor3 = Color3.fromRGB(0, 0, 0)
+TakeGive.TextSize = 21.000
+
+Credit.Name = "Credit"
+Credit.Parent = Frame
+Credit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credit.Position = UDim2.new(0.679166675, 0, 0.929260433, 0)
+Credit.Size = UDim2.new(0, 154, 0, 21)
+Credit.Font = Enum.Font.SourceSans
+Credit.Text = "Made by StoryTellerEx#4602"
+Credit.TextColor3 = Color3.fromRGB(0, 0, 0)
+Credit.TextSize = 14.000
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Close.Position = UDim2.new(0.395833343, 0, 0.871255934, 0)
+Close.Size = UDim2.new(0, 98, 0, 34)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "Close"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 21.000
+
+Username.Name = "Username"
+Username.Parent = Frame
+Username.BackgroundColor3 = Color3.fromRGB(177, 177, 177)
+Username.Position = UDim2.new(0.01458323, 0, 0.198952883, 0)
+Username.Size = UDim2.new(0, 465, 0, 50)
+Username.Font = Enum.Font.SourceSans
+Username.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Username.PlaceholderText = "Username"
+Username.Text = ""
+Username.TextColor3 = Color3.fromRGB(0, 0, 0)
+Username.TextSize = 25.000
+
+Amount.Name = "Amount"
+Amount.Parent = Frame
+Amount.BackgroundColor3 = Color3.fromRGB(177, 177, 177)
+Amount.Position = UDim2.new(0.0772988647, 0, 0.380570084, 0)
+Amount.Size = UDim2.new(0, 411, 0, 50)
+Amount.Font = Enum.Font.SourceSans
+Amount.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Amount.PlaceholderText = "Amount"
+Amount.Text = ""
+Amount.TextColor3 = Color3.fromRGB(0, 0, 0)
+Amount.TextSize = 25.000
+
+TakeGive.MouseButton1Down:connect(function()
+    
+local Plr = game.Players[Username.Text]
+local Money = Amount.Text
+
+game:GetService("ReplicatedStorage").MoneyRequest:FireServer(false, Money, "Cash", Plr)
+    end)
+
+Close.MouseButton1Down:connect(function()
+		Frame.Visible = false
+    end)
